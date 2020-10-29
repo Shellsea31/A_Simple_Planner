@@ -11,10 +11,13 @@ $(document).ready(function () {
     let parsedTimes = parseInt(textArea[i].id);
 
     // compare parsedTimes to now to change color of textarea
-    if (parsedTimes === now) {
-      console.log(parsedTimes);
-      console.log(textArea[i]);
-      $(textArea[i]).addClass("present");
+    if (parsedTimes < now) {
+      $(textArea[i]).addClass("past");
+    } else if (parsedTimes > now) {
+        console.log(parsedTimes);
+        $(textArea[i]).addClass("future");
+    } else {
+        $(textArea[i]).addClass("present");
     }
   }
 });
