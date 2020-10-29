@@ -3,18 +3,18 @@ $(document).ready(function () {
 
 // this is the current time
   let now = moment().hour();
-// get all headers
-  let headers = document.getElementsByTagName("h4");
+// target all textarea elements by their class
+  let textArea = document.querySelectorAll(".col-sm-10");
 
-  for (let i = 0; i < headers.length; i++) {
-    //   set each header id to allTimes
-    let allTimes = headers[i].id;
-    // make them numbers
-    let parsedTimes = parseInt(allTimes);
+  for (let i = 0; i < textArea.length; i++) {
+    // parse each textarea id into number
+    let parsedTimes = parseInt(textArea[i].id);
 
-    // begin conditionals to change color
+    // compare parsedTimes to now to change color of textarea
     if (parsedTimes === now) {
       console.log(parsedTimes);
+      console.log(textArea[i]);
+      $(textArea[i]).addClass("present");
     }
   }
 });
