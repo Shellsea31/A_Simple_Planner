@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#currentDay").append(moment().format("MMMM Do YYYY"));
+  $("#currentDay").text(moment().format("MMMM Do YYYY"));
 
   // this is the current time
   let now = moment().hour();
@@ -37,13 +37,15 @@ $(document).ready(function () {
   });
 
   // when you click the submit form
-  $("form").on("submit", function (e) {
+  $(".saveBtn").on("click", function (e) {
     e.preventDefault();
     // let time equal the id (num) corresponding to the button you clicked
-    let time = e.target.previousElementSibling.getAttribute("id");
+    let time = $(this).siblings("textarea").attr("id");
     // let text equal the words typed into the textarea corresponding to the button you clicked
-    let text = e.target.previousElementSibling.value;
+    let text = $(this).siblings("textarea").val();
     // set values to local storage
     localStorage.setItem(time, text);
   });
 });
+
+
