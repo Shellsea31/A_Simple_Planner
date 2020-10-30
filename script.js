@@ -15,6 +15,7 @@ $(document).ready(function () {
     // to that specific number in the array
     if (thisTime < now) {
       $(`#${thisTime}`).addClass("past");
+      $(`#${thisTime}`).attr("disabled", true);
     }
 
     if (thisTime > now) {
@@ -28,13 +29,21 @@ $(document).ready(function () {
     // if the value of keyword this time is null
     if (getTime === null) {
       // set value to empty string
-      window.localStorage.setItem(thisTime, "")
+      window.localStorage.setItem(thisTime, "");
       // if something is written / the length is higher than 0
-    } else if(getTime.length > 0){
+    } else if (getTime.length > 0) {
       $(`#${thisTime}`).val(getTime);
     }
-      
-    });
-
-
   });
+
+  // when you click the submit form
+  $("form").on("submit", function (e) {
+    e.preventDefault();
+    // let time equal the id (num) corresponding to the button you clicked
+    let time = e.target.previousElementSibling.getAttribute("id");
+    // let text equal the words typed into the textarea corresponding to the button you clicked
+    let text = e.target.previousElementSibling.value;
+    // set values to local storage
+    localStorage.setItem(time, text);
+  });
+});
