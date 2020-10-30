@@ -1,71 +1,40 @@
 $(document).ready(function () {
   $("#currentDay").append(moment().format("MMMM Do YYYY"));
 
-// this is the current time
+  // this is the current time
   let now = moment().hour();
-// target all textarea elements by their class
-  let textArea = document.querySelectorAll(".col-sm-10");
-  // target all buttons that submit text
-  let submitBtns = document.querySelectorAll(".saveBtn");
-  // console.log(submitBtns)
-
+  // this is the times on the schedule
+  let times = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
   // loop through all times
-  for (let i = 0; i < textArea.length; i++) {
-    // parse each textarea div id into number
-    let parsedTimes = parseInt(textArea[i].id);
+  times.forEach((thisTime) => {
+    let getTime = window.localStorage.getItem(thisTime);
 
-    // compare parsedTimes to now to change color of textarea
-    if (parsedTimes < now) {
-      $(textArea[i]).addClass("past");
-    } 
-    
-    if (parsedTimes > now) {
-        $(textArea[i]).addClass("future");
-    } 
+    // compare thisTime to now to change color of textarea
+    // with $(`#${thisTime}`) you are targeting the element with the id corresponding
+    // to that specific number in the array
+    if (thisTime < now) {
+      $(`#${thisTime}`).addClass("past");
+    }
 
-    if (parsedTimes === now) {
-        $(textArea[i]).addClass("present");
-    } 
-  }
+    if (thisTime > now) {
+      $(`#${thisTime}`).addClass("future");
+    }
 
+    if (thisTime === now) {
+      $(`#${thisTime}`).addClass("present");
+    }
 
-  // loop through all buttons
-  for (let i = 0; i < submitBtns.length; i++) {
-
-    // when you click the button
-    $(submitBtns[i]).on("click", function(){
-
-      // set the text area of each submit button
-      let thisTextArea = this.previousElementSibling;
-      console.log(thisTextArea);
-      thisTextArea.append(thisTextArea.value);
-
-      // create an object for all user entries
-      let userNotes = {
-        nine: textArea[0].value,
-        ten: textArea[1].value,
-        eleven: textArea[2].value,
-        twelve: textArea[3].value,
-        one: textArea[4].value,
-        two: textArea[5].value,
-        three: textArea[6].value,
-        four: textArea[7].value,
-        five: textArea[8].value,
-      }
-    
-      console.log(userNotes);
-
-
+    // if the value of keyword this time is null
+    if (getTime === null) {
+      // set value to empty string
+      window.localStorage.setItem(thisTime, "")
+      // if something is written / the length is higher than 0
+    } else if(getTime.length > 0){
+      $(`#${thisTime}`).val(getTime);
+    }
       
-      
+    });
 
-    })
-    
-     // create object for all entries
- 
-  }
 
-  
-
-});
+  });
