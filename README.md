@@ -2,7 +2,7 @@
  
  ## Description
 
- This week I was tasked to create a simple daily planner. The user should be able to save events for each hour a nine to five schedule. The CSS and HTML should be updated dynamically and done using jQuery and the [Moment.js](https://momentjs.com/) library.
+ This week I was tasked to create a simple daily planner. The user should be able to save events for each hour of a nine to five schedule. The CSS and HTML should be updated dynamically using jQuery and the [Moment.js](https://momentjs.com/) library.
 
  ## Requirements:
 
