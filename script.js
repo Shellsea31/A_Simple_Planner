@@ -47,5 +47,3 @@ $(document).ready(function () {
     localStorage.setItem(time, text);
   });
 });
-
-
