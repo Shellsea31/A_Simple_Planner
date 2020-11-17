@@ -14,7 +14,9 @@
  * Saved event persists on refresh
 
  ## Screenshots
-
+ 
+ ![shellsea31 github io_A_Simple_Planner_](https://user-images.githubusercontent.com/70654835/99454801-c7cd4700-28db-11eb-8b41-3c65b4e920c0.png)
+ 
  ![_C__Users_shels_Desktop_Homework_05_Homework_Develop_index html](https://user-images.githubusercontent.com/70654835/97795560-12a14c00-1bc5-11eb-94ed-7d1779d6fa79.png)
  
  ## Demo
