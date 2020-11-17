@@ -1,5 +1,5 @@
 # 05 Third-Party APIs: Work Day Scheduler
- 
+ <img src="https://img.shields.io/badge/LICENSE-mit-green"/>
  ## Description
 
  This week I was tasked to create a simple daily planner. The user should be able to save events for each hour of a nine to five schedule. The CSS and HTML should be updated dynamically using jQuery and the [Moment.js](https://momentjs.com/) library.
